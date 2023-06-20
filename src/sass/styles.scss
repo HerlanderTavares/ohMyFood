@@ -1,1 +1,7 @@
 @use './helpers.scss';
+
+@use './sections/nav';
+@use './sections/hero';
+@use './sections/presentation';
+@use './sections/restaurant';
+@use './sections/footer';

@@ -1,0 +1,140 @@
+@use '../helpers.scss' as *;
+
+.restaurant {
+  background-color: color(bkg);
+
+  .title {
+    margin-bottom: 6rem;
+  }
+
+  &__options {
+    width: 100%;
+    @include flex-center(true);
+    gap: 3rem;
+  }
+
+  &__option {
+    width: 100%;
+    max-width: 52rem;
+    height: 30rem;
+    border-radius: 2rem;
+    overflow: hidden;
+    background-color: white;
+    @include box-shadow(0, 0, 2, 0.3);
+    position: relative;
+    display: block;
+    @include flex($dir: column);
+
+    &--link {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    &--img {
+      width: 100%;
+      height: 1px;
+      flex: 7;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    &--info {
+      width: 100%;
+      @include flex(space-between, center);
+      flex: 3;
+      padding: 0 3rem;
+    }
+
+    &--title {
+      font-size: 2.1rem;
+    }
+
+    &--location {
+      font-weight: 300;
+      font-size: 1.9rem;
+    }
+
+    &--favIcon {
+      font-size: 3rem;
+      display: grid;
+      cursor: pointer;
+      padding: 0.5rem;
+      z-index: 100;
+      transition: scale 250ms ease-out;
+
+      $clip-path: polygon(-10% 0, 110% 0, 110% 100%, 0 100%);
+      $clip-path-close: polygon(-10% 100%, 110% 100%, 110% 100%, -10% 100%);
+
+      .icon {
+        grid-column: 1;
+        grid-row: 1;
+        transition: clip-path 250ms ease-out;
+        clip-path: $clip-path;
+      }
+
+      .hover {
+        color: color(primary);
+        clip-path: $clip-path-close;
+      }
+
+      &:hover,
+      &.active {
+        .main {
+          color: color(primary);
+        }
+
+        .hover {
+          scale: 1 1;
+          clip-path: $clip-path;
+        }
+      }
+
+      &:active {
+        transition: none;
+        scale: 1.5;
+      }
+    }
+
+    &.new::after {
+      content: 'New';
+      background-color: #99e2d0;
+      color: #139273;
+      font-weight: 600;
+      font-size: 1.8rem;
+      padding: 0.7rem 3.75rem;
+      @include box-shadow(0, 0.5, 1, 0.7);
+      position: absolute;
+      $distance: 2rem;
+      top: $distance;
+      right: $distance;
+    }
+  }
+}
+
+/************** Queries **************/
+@include query(590) {
+  .title {
+    text-align: center;
+  }
+}
+
+@include query(1200) {
+  .restaurant {
+    &__options {
+      display: grid;
+      grid-template-columns: max-content max-content;
+      gap: 5rem;
+    }
+
+    &__option {
+      width: 46rem;
+    }
+  }
+}

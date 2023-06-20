@@ -1,0 +1,62 @@
+@use '../helpers.scss' as *;
+
+.nav {
+  z-index: 100;
+  isolation: isolate;
+
+  .content {
+    width: 100%;
+    @include flex($dir: column);
+  }
+
+  &__logo {
+    padding: 3rem 0 1.5rem;
+    @include flex-center;
+    @include box-shadow(0, 0.3, 1, 0.2);
+  }
+
+  &__location {
+    width: 100%;
+    background-color: #eaeaea;
+    color: color(font);
+    font-size: 2rem;
+    font-weight: 600;
+    padding: 2rem;
+    @include flex-center;
+
+    span {
+      position: relative;
+    }
+
+    .icon {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      translate: -250% -15%;
+    }
+  }
+}
+
+/************** Queries **************/
+@include query(950) {
+  .nav {
+    @include box-shadow(0, 0.3, 1, 0.2);
+    padding: 3rem;
+
+    .content {
+      justify-content: space-between;
+      flex-direction: row;
+    }
+
+    &__logo {
+      box-shadow: none;
+      padding: 0;
+    }
+
+    &__location {
+      padding: 0;
+      width: unset;
+      background: none;
+    }
+  }
+}

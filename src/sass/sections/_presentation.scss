@@ -1,0 +1,105 @@
+@use '../helpers.scss' as *;
+
+.presentation {
+  .title {
+    margin-bottom: 3rem;
+  }
+
+  &__steps {
+    width: 100%;
+    @include flex-center(true);
+    gap: 3rem;
+  }
+
+  &__step {
+    width: 96%;
+    max-width: 45rem;
+    counter-increment: option;
+    position: relative;
+    background-color: color(bkg);
+    padding: 3rem 4rem;
+    padding-right: 1rem;
+    border-radius: 2rem;
+    @include box-shadow(0, 0.2, 2, 0.3);
+    @include flex(flex-start, center);
+    gap: 2rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 300ms ease-out;
+
+    .icon {
+      font-size: 1.2em;
+      color: #7e7e7e;
+    }
+
+    &::before {
+      content: counter(option);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      translate: -50% -50%;
+      width: 3rem;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background-color: color(primary);
+      color: white;
+      font-family: 'Open-sans', sans-serif;
+    }
+
+    &:hover {
+      background-color: color(hover);
+      .icon {
+        color: color(primary);
+      }
+    }
+  }
+}
+
+/************** Queries **************/
+@include query(420) {
+  .presentation__step {
+    font-size: 1.8rem;
+  }
+}
+
+@include query(540) {
+  .presentation {
+    .title {
+      text-align: center;
+    }
+  }
+}
+
+@include query(1170) {
+  .presentation {
+    &__steps {
+      flex-direction: row;
+      margin-top: 6rem;
+      gap: 5rem;
+      justify-content: space-between;
+    }
+
+    &__step {
+      height: 20rem;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0;
+
+      .icon {
+        font-size: 2em;
+      }
+
+      &::before {
+        top: 0;
+        left: 50%;
+        width: 4rem;
+      }
+    }
+  }
+}

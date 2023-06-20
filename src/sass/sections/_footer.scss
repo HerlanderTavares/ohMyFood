@@ -1,0 +1,64 @@
+@use '../helpers.scss' as *;
+
+.footer {
+  background-color: color(footer);
+  padding: 5rem 0;
+  position: relative;
+
+  .content {
+    max-width: unset;
+    @include query(1150) {
+      @include flex(space-between, center);
+    }
+  }
+
+  &__logo {
+    filter: invert(100%) brightness(120%);
+    width: 15rem;
+    margin-bottom: 2rem;
+
+    @include query(1150) {
+      margin-bottom: 0;
+    }
+  }
+
+  &__list {
+    @include flex($ver: flex-start, $dir: column);
+    gap: 1.8rem;
+
+    @include query(1150) {
+      flex-direction: row;
+      gap: 7rem;
+    }
+  }
+
+  &__item {
+    position: relative;
+    display: inline-block;
+  }
+
+  &__link {
+    @include flex(flex-start, center);
+    gap: 1.5rem;
+    transition: color 250ms ease-out;
+
+    @include query(1150) {
+      gap: 0.6rem;
+    }
+
+    &:link,
+    &:visited {
+      color: white;
+      font-size: 1.8rem;
+      font-weight: 500;
+    }
+
+    &:hover {
+      color: color(secondary);
+    }
+
+    i {
+      width: 3rem;
+    }
+  }
+}

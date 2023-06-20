@@ -2,6 +2,10 @@ $colors: (
   'primary': #9356dc,
   'secondary': #ff79da,
   'adjacent': #99e2d0,
+  'bkg': #f6f6f6,
+  'hover': #f5edff,
+  'font': #7e7e7e,
+  'footer': #353535,
 );
 
 @function color($color-name) {
