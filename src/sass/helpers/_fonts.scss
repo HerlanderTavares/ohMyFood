@@ -1,0 +1,8 @@
+$fonts: (
+  'main': 'Quicksand',
+  'heading': 'Raleway',
+);
+
+@function font($font-name) {
+  @return map-get($fonts, $font-name), sans-serif;
+}

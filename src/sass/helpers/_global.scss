@@ -1,0 +1,47 @@
+@use './classes';
+@use './colors';
+@use './fonts';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  &:link,
+  &:visited {
+    text-decoration: none;
+    color: black;
+  }
+}
+
+img {
+  @extend %no-select;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+section {
+  position: relative;
+}

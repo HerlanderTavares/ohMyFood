@@ -1,0 +1,17 @@
+@mixin query($size, $wid_hei: width, $min_max: max) {
+  @media (#{$min_max}-#{$wid_hei}: calc($size / 16 * 1em)) {
+    @content;
+  }
+}
+
+@mixin landscape($size, $wid_hei: height, $min_max: max) {
+  @media (orientation: landscape) and (#{$min_max}-#{$wid_hei}: calc($size / 16 * 1em)) {
+    @content;
+  }
+}
+
+@mixin portrait($size, $wid_hei: width, $min_max: max) {
+  @media (orientation: portrait) and (#{$min_max}-#{$wid_hei}: calc($size / 16 * 1em)) {
+    @content;
+  }
+}
