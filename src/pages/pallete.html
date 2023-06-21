@@ -4,16 +4,129 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../sass/styles.scss" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <title>OhMyFood</title>
   </head>
   <body>
-     <header>
-      <nav class="nav">
+    <header>
+      <nav class="nav menu__nav">
         <div class="content">
           <div class="nav__logo">
-            <img src="../imgs/logo.svg" alt="Logo" />
+            <a href="./homepage.html" class="nav__back">
+              <i class="fa-solid fa-chevron-left"></i>
+            </a>
+            <img src="../imgs/logo.svg" alt="Logo" class="menu__logo" />
           </div>
         </div>
       </nav>
+    </header>
+
+    <main class="menu">
+      <img class="menu__img" src="../imgs/pallete.jpg" alt="Image of a delicious dish" />
+      <div class="menu__info">
+        <div class="content">
+          <header class="menu__title">
+            <h1>Title</h1>
+            <span class="restaurant__option--favIcon">
+              <i class="fa-regular fa-heart icon main"></i>
+              <i class="fa-solid fa-heart icon hover"> </i>
+            </span>
+          </header>
+
+          <div class="menu__btns">
+            <h2 class="menu__subtitle" id="entrees">Entrees</h2>
+
+            <h2 class="menu__subtitle" id="main">Main Dish</h2>
+
+            <h2 class="menu__subtitle" id="desserts">Desserts</h2>
+          </div>
+
+          <a href="./order.html" class="hero__btn menu__order">Order</a>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="content">
+        <img src="../imgs/logo.svg" alt="Logo" class="footer__logo" />
+
+        <ul class="footer__list">
+          <li class="footer__item">
+            <a href="#" class="footer__link">
+              <i class="fa-solid fa-utensils icon"></i>
+              <span>Suggest a restaurant</span>
+            </a>
+          </li>
+          <li class="footer__item">
+            <a href="#" class="footer__link">
+              <i class="fa-solid fa-handshake-angle icon"></i>
+              <span>Become a partner</span>
+            </a>
+          </li>
+          <li class="footer__item">
+            <a href="#" class="footer__link">
+              <i class="fa-solid fa-gavel icon"></i>
+              <span>Legal</span>
+            </a>
+          </li>
+          <li class="footer__item">
+            <a href="mailto: contact@ohmyfood.com" class="footer__link">
+              <i class="fa-solid fa-phone icon"></i>
+              <span>Contact</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </footer>
+
+    <script type="module">
+      import restaurants from '../data/restaurants.js';
+
+      const restaurant = restaurants[0];
+      const entreesTitle = document.querySelector('#entrees');
+      const mainTitle = document.querySelector('#main');
+      const dessertsTitle = document.querySelector('#desserts');
+      const title = document.querySelector('.menu__title h1');
+      const favBtn = document.querySelector('.restaurant__option--favIcon');
+
+      title.innerHTML = restaurant.name;
+      favBtn.addEventListener('click', e => e.target.classList.toggle('active'));
+
+      createBtns(restaurant.menu.entrees, entreesTitle);
+      createBtns(restaurant.menu.main, mainTitle);
+      createBtns(restaurant.menu.desserts, dessertsTitle);
+
+      const btns = document.querySelectorAll('.menu__btn');
+      btns.forEach(btn => btn.addEventListener('click', e => e.target.classList.toggle('active')));
+
+      /************** Functions **************/
+      function createBtns(list, subtitle) {
+        list.forEach(item => {
+          const btn = markup(item);
+          subtitle.insertAdjacentHTML('afterend', btn);
+        });
+      }
+
+      function markup(item) {
+        return `
+         <button class="menu__btn">
+           <span class="menu__btn--labels">
+             <span class="menu__btn--title">${item.name}</span>
+             <span class="menu__btn--description">${item.description}</span>
+           </span>
+           <span class="menu__btn--price">€${item.price}</span>
+           <span class="menu__btn--check">
+             <i class="fa-solid fa-circle-check icon"></i>
+           </span>
+         </button>
+        `;
+      }
+    </script>
   </body>
 </html>

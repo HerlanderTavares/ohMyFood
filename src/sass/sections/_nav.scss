@@ -13,13 +13,17 @@
     padding: 3rem 0 1.5rem;
     @include flex-center;
     @include box-shadow(0, 0.3, 1, 0.2);
+
+    img {
+      width: 16rem;
+    }
   }
 
   &__location {
     width: 100%;
     background-color: #eaeaea;
     color: color(font);
-    font-size: 2rem;
+    font-size: 1.6rem;
     font-weight: 600;
     padding: 2rem;
     @include flex-center;
@@ -34,6 +38,11 @@
       bottom: 0;
       translate: -250% -15%;
     }
+  }
+
+  &__back {
+    font-size: 2rem;
+    width: 50%;
   }
 }
 

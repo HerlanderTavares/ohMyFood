@@ -15,8 +15,9 @@
 
   &__option {
     width: 100%;
-    max-width: 52rem;
-    height: 30rem;
+    max-width: 40rem;
+    aspect-ratio: 6 / 4;
+    max-height: 24rem;
     border-radius: 2rem;
     overflow: hidden;
     background-color: white;
@@ -49,20 +50,20 @@
       width: 100%;
       @include flex(space-between, center);
       flex: 3;
-      padding: 0 3rem;
+      padding: 0 2rem;
     }
 
     &--title {
-      font-size: 2.1rem;
+      font-size: 1.8rem;
     }
 
     &--location {
       font-weight: 300;
-      font-size: 1.9rem;
+      font-size: 1.6rem;
     }
 
     &--favIcon {
-      font-size: 3rem;
+      font-size: 2.5rem;
       display: grid;
       cursor: pointer;
       padding: 0.5rem;
@@ -107,8 +108,8 @@
       background-color: #99e2d0;
       color: #139273;
       font-weight: 600;
-      font-size: 1.8rem;
-      padding: 0.7rem 3.75rem;
+      font-size: 1.4rem;
+      padding: 0.7rem 3rem;
       @include box-shadow(0, 0.5, 1, 0.7);
       position: absolute;
       $distance: 2rem;
