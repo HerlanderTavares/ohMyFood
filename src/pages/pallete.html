@@ -32,7 +32,7 @@
       <div class="menu__info">
         <div class="content">
           <header class="menu__title">
-            <h1>Title</h1>
+            <h1>The Full Pallete</h1>
             <span class="restaurant__option--favIcon">
               <i class="fa-regular fa-heart icon main"></i>
               <i class="fa-solid fa-heart icon hover"> </i>
@@ -41,13 +41,111 @@
 
           <div class="menu__btns">
             <h2 class="menu__subtitle" id="entrees">Entrees</h2>
+            <button class="menu__btn">
+              <span class="menu__btn--labels">
+                <span class="menu__btn--title">Fried Egg</span>
+                <span class="menu__btn--description">Seasoned with truffle cream and cheese</span>
+              </span>
+              <span class="menu__btn--price">€20</span>
+              <span class="menu__btn--check">
+                <i class="fa-solid fa-circle-check icon"></i>
+              </span>
+            </button>
+
+            <button class="menu__btn">
+              <span class="menu__btn--labels">
+                <span class="menu__btn--title">Duck Foie Gras</span>
+                <span class="menu__btn--description">With black truffle shavings</span>
+              </span>
+              <span class="menu__btn--price">€35</span>
+              <span class="menu__btn--check">
+                <i class="fa-solid fa-circle-check icon"></i>
+              </span>
+            </button>
+
+            <button class="menu__btn">
+              <span class="menu__btn--labels">
+                <span class="menu__btn--title">Escargot</span>
+                <span class="menu__btn--description">With southern French spices</span>
+              </span>
+              <span class="menu__btn--price">€25</span>
+              <span class="menu__btn--check">
+                <i class="fa-solid fa-circle-check icon"></i>
+              </span>
+            </button>
 
             <h2 class="menu__subtitle" id="main">Main Dish</h2>
+            <button class="menu__btn">
+              <span class="menu__btn--labels">
+                <span class="menu__btn--title">Filet of Sole</span>
+                <span class="menu__btn--description">With citrus dressing</span>
+              </span>
+              <span class="menu__btn--price">€44</span>
+              <span class="menu__btn--check">
+                <i class="fa-solid fa-circle-check icon"></i>
+              </span>
+            </button>
+
+            <button class="menu__btn">
+              <span class="menu__btn--labels">
+                <span class="menu__btn--title">Ox Tail Shepard's Pie</span>
+                <span class="menu__btn--description">With black truffle and pureed parsnips</span>
+              </span>
+              <span class="menu__btn--price">€35</span>
+              <span class="menu__btn--check">
+                <i class="fa-solid fa-circle-check icon"></i>
+              </span>
+            </button>
+
+            <button class="menu__btn">
+              <span class="menu__btn--labels">
+                <span class="menu__btn--title">Herb-Encrusted Steak</span>
+                <span class="menu__btn--description"
+                  >With delicately sliced and seasoned vegetables</span
+                >
+              </span>
+              <span class="menu__btn--price">€40</span>
+              <span class="menu__btn--check">
+                <i class="fa-solid fa-circle-check icon"></i>
+              </span>
+            </button>
 
             <h2 class="menu__subtitle" id="desserts">Desserts</h2>
+            <button class="menu__btn">
+              <span class="menu__btn--labels">
+                <span class="menu__btn--title">Chocolate Mousse</span>
+                <span class="menu__btn--description">With spices and black truffle</span>
+              </span>
+              <span class="menu__btn--price">€23</span>
+              <span class="menu__btn--check">
+                <i class="fa-solid fa-circle-check icon"></i>
+              </span>
+            </button>
+
+            <button class="menu__btn">
+              <span class="menu__btn--labels">
+                <span class="menu__btn--title">Chocolate Macaroons</span>
+                <span class="menu__btn--description">With vanilla ice cream</span>
+              </span>
+              <span class="menu__btn--price">€22</span>
+              <span class="menu__btn--check">
+                <i class="fa-solid fa-circle-check icon"></i>
+              </span>
+            </button>
+
+            <button class="menu__btn">
+              <span class="menu__btn--labels">
+                <span class="menu__btn--title">Paris-Brest</span>
+                <span class="menu__btn--description">Revisted</span>
+              </span>
+              <span class="menu__btn--price">€18</span>
+              <span class="menu__btn--check">
+                <i class="fa-solid fa-circle-check icon"></i>
+              </span>
+            </button>
           </div>
 
-          <a href="./order.html" class="hero__btn menu__order">Order</a>
+          <button class="hero__btn menu__order">Order</button>
         </div>
       </div>
     </main>
@@ -76,7 +174,7 @@
             </a>
           </li>
           <li class="footer__item">
-            <a href="mailto: contact@ohmyfood.com" class="footer__link">
+            <a href="mailto:contact@ohmyfood.com" class="footer__link">
               <i class="fa-solid fa-phone icon"></i>
               <span>Contact</span>
             </a>
@@ -86,46 +184,29 @@
     </footer>
 
     <script type="module">
-      import restaurants from '../data/restaurants.js';
-
-      const restaurant = restaurants[0];
-      const entreesTitle = document.querySelector('#entrees');
-      const mainTitle = document.querySelector('#main');
-      const dessertsTitle = document.querySelector('#desserts');
-      const title = document.querySelector('.menu__title h1');
-      const favBtn = document.querySelector('.restaurant__option--favIcon');
-
-      title.innerHTML = restaurant.name;
-      favBtn.addEventListener('click', e => e.target.classList.toggle('active'));
-
-      createBtns(restaurant.menu.entrees, entreesTitle);
-      createBtns(restaurant.menu.main, mainTitle);
-      createBtns(restaurant.menu.desserts, dessertsTitle);
-
       const btns = document.querySelectorAll('.menu__btn');
-      btns.forEach(btn => btn.addEventListener('click', e => e.target.classList.toggle('active')));
+      const selectedMeals = [];
+
+      btns.forEach((btn, i) => {
+        const id = 'MEAL' + `${i + 1}`.padStart(3, '0');
+
+        btn.addEventListener('click', e => {
+          const btn = e.target;
+          btn.classList.toggle('active');
+          addMeal(btn, id);
+        });
+
+        btn.addEventListener('mouseenter', e => e.target.classList.add('hoverIn'));
+        btn.addEventListener('mouseleave', e => {
+          const btn = e.target;
+          if (!btn.classList.contains('active')) btn.classList.remove('hoverIn');
+        });
+      });
 
       /************** Functions **************/
-      function createBtns(list, subtitle) {
-        list.forEach(item => {
-          const btn = markup(item);
-          subtitle.insertAdjacentHTML('afterend', btn);
-        });
-      }
-
-      function markup(item) {
-        return `
-         <button class="menu__btn">
-           <span class="menu__btn--labels">
-             <span class="menu__btn--title">${item.name}</span>
-             <span class="menu__btn--description">${item.description}</span>
-           </span>
-           <span class="menu__btn--price">€${item.price}</span>
-           <span class="menu__btn--check">
-             <i class="fa-solid fa-circle-check icon"></i>
-           </span>
-         </button>
-        `;
+      function addMeal(btn, id) {
+        if (btn.classList.contains('active')) selectedMeals.push(id);
+        else selectedMeals.splice(selectedMeals.indexOf(id), 1);
       }
     </script>
   </body>

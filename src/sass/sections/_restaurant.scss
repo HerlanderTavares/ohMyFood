@@ -68,7 +68,7 @@
       cursor: pointer;
       padding: 0.5rem;
       z-index: 100;
-      transition: scale 250ms ease-out;
+      transition: transform 250ms ease-out;
 
       $clip-path: polygon(-10% 0, 110% 0, 110% 100%, 0 100%);
       $clip-path-close: polygon(-10% 100%, 110% 100%, 110% 100%, -10% 100%);
@@ -92,14 +92,14 @@
         }
 
         .hover {
-          scale: 1 1;
+          transform: scale(1, 1);
           clip-path: $clip-path;
         }
       }
 
       &:active {
         transition: none;
-        scale: 1.5;
+        transform: scale(1.5);
       }
     }
 

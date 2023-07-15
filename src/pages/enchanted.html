@@ -32,7 +32,7 @@
       <div class="menu__info">
         <div class="content">
           <header class="menu__title">
-            <h1>Title</h1>
+            <h1>The Enchanted Plate</h1>
             <span class="restaurant__option--favIcon">
               <i class="fa-regular fa-heart icon main"></i>
               <i class="fa-solid fa-heart icon hover"> </i>
@@ -41,10 +41,117 @@
 
           <div class="menu__btns">
             <h2 class="menu__subtitle" id="entrees">Entrees</h2>
+            <button class="menu__btn">
+              <span class="menu__btn--labels">
+                <span class="menu__btn--title">Duck Foie Gras</span>
+                <span class="menu__btn--description">With fig jam and grilled baguette</span>
+              </span>
+              <span class="menu__btn--price">€35</span>
+              <span class="menu__btn--check">
+                <i class="fa-solid fa-circle-check icon"></i>
+              </span>
+            </button>
+
+            <button class="menu__btn">
+              <span class="menu__btn--labels">
+                <span class="menu__btn--title">Lobster and Leek Foam</span>
+                <span class="menu__btn--description">Marinated with orange zest</span>
+              </span>
+              <span class="menu__btn--price">€20</span>
+              <span class="menu__btn--check">
+                <i class="fa-solid fa-circle-check icon"></i>
+              </span>
+            </button>
+
+            <button class="menu__btn">
+              <span class="menu__btn--labels">
+                <span class="menu__btn--title">Oscietra Caviar</span>
+                <span class="menu__btn--description">With buckwheat blinis</span>
+              </span>
+              <span class="menu__btn--price">€35</span>
+              <span class="menu__btn--check">
+                <i class="fa-solid fa-circle-check icon"></i>
+              </span>
+            </button>
+
+            <button class="menu__btn">
+              <span class="menu__btn--labels">
+                <span class="menu__btn--title">Foie Gras Ravioli</span>
+                <span class="menu__btn--description">With truffle cream</span>
+              </span>
+              <span class="menu__btn--price">€25</span>
+              <span class="menu__btn--check">
+                <i class="fa-solid fa-circle-check icon"></i>
+              </span>
+            </button>
 
             <h2 class="menu__subtitle" id="main">Main Dish</h2>
+            <button class="menu__btn">
+              <span class="menu__btn--labels">
+                <span class="menu__btn--title">Braised Ox Tail</span>
+                <span class="menu__btn--description">With wild rice and lemon zest</span>
+              </span>
+              <span class="menu__btn--price">€44</span>
+              <span class="menu__btn--check">
+                <i class="fa-solid fa-circle-check icon"></i>
+              </span>
+            </button>
+
+            <button class="menu__btn">
+              <span class="menu__btn--labels">
+                <span class="menu__btn--title">Pan-Fried Lobster</span>
+                <span class="menu__btn--description">With mashed sweet potatoes</span>
+              </span>
+              <span class="menu__btn--price">€35</span>
+              <span class="menu__btn--check">
+                <i class="fa-solid fa-circle-check icon"></i>
+              </span>
+            </button>
+
+            <button class="menu__btn">
+              <span class="menu__btn--labels">
+                <span class="menu__btn--title">Fresh Buttered Scallops</span>
+                <span class="menu__btn--description">With white celery puree</span>
+              </span>
+              <span class="menu__btn--price">€40</span>
+              <span class="menu__btn--check">
+                <i class="fa-solid fa-circle-check icon"></i>
+              </span>
+            </button>
 
             <h2 class="menu__subtitle" id="desserts">Desserts</h2>
+            <button class="menu__btn">
+              <span class="menu__btn--labels">
+                <span class="menu__btn--title">Lemon Meringue Pie</span>
+                <span class="menu__btn--description">Destructured</span>
+              </span>
+              <span class="menu__btn--price">€23</span>
+              <span class="menu__btn--check">
+                <i class="fa-solid fa-circle-check icon"></i>
+              </span>
+            </button>
+
+            <button class="menu__btn">
+              <span class="menu__btn--labels">
+                <span class="menu__btn--title">Baba au rhum</span>
+                <span class="menu__btn--description">With lemon drizzle</span>
+              </span>
+              <span class="menu__btn--price">€22</span>
+              <span class="menu__btn--check">
+                <i class="fa-solid fa-circle-check icon"></i>
+              </span>
+            </button>
+
+            <button class="menu__btn">
+              <span class="menu__btn--labels">
+                <span class="menu__btn--title">Chocolate and Hazelnut Macaroon</span>
+                <span class="menu__btn--description">With caramel butter ice cream</span>
+              </span>
+              <span class="menu__btn--price">€18</span>
+              <span class="menu__btn--check">
+                <i class="fa-solid fa-circle-check icon"></i>
+              </span>
+            </button>
           </div>
 
           <a href="./order.html" class="hero__btn menu__order">Order</a>
@@ -76,7 +183,7 @@
             </a>
           </li>
           <li class="footer__item">
-            <a href="mailto: contact@ohmyfood.com" class="footer__link">
+            <a href="mailto:contact@ohmyfood.com" class="footer__link">
               <i class="fa-solid fa-phone icon"></i>
               <span>Contact</span>
             </a>
@@ -86,47 +193,16 @@
     </footer>
 
     <script type="module">
-      import restaurants from '../data/restaurants.js';
-
-      const restaurant = restaurants[1];
-      const entreesTitle = document.querySelector('#entrees');
-      const mainTitle = document.querySelector('#main');
-      const dessertsTitle = document.querySelector('#desserts');
-      const title = document.querySelector('.menu__title h1');
-      const favBtn = document.querySelector('.restaurant__option--favIcon');
-
-      title.innerHTML = restaurant.name;
-      favBtn.addEventListener('click', e => e.target.classList.toggle('active'));
-
-      createBtns(restaurant.menu.entrees, entreesTitle);
-      createBtns(restaurant.menu.main, mainTitle);
-      createBtns(restaurant.menu.desserts, dessertsTitle);
-
       const btns = document.querySelectorAll('.menu__btn');
-      btns.forEach(btn => btn.addEventListener('click', e => e.target.classList.toggle('active')));
+      btns.forEach(btn => {
+        btn.addEventListener('click', e => e.target.classList.toggle('active'));
 
-      /************** Functions **************/
-      function createBtns(list, subtitle) {
-        list.forEach(item => {
-          const btn = markup(item);
-          subtitle.insertAdjacentHTML('afterend', btn);
+        btn.addEventListener('mouseenter', e => e.target.classList.add('hoverIn'));
+        btn.addEventListener('mouseleave', e => {
+          const btn = e.target;
+          if (!btn.classList.contains('active')) btn.classList.remove('hoverIn');
         });
-      }
-
-      function markup(item) {
-        return `
-         <button class="menu__btn">
-           <span class="menu__btn--labels">
-             <span class="menu__btn--title">${item.name}</span>
-             <span class="menu__btn--description">${item.description}</span>
-           </span>
-           <span class="menu__btn--price">€${item.price}</span>
-           <span class="menu__btn--check">
-             <i class="fa-solid fa-circle-check icon"></i>
-           </span>
-         </button>
-        `;
-      }
+      });
     </script>
   </body>
 </html>
