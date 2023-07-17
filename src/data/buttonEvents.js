@@ -41,13 +41,15 @@ function addMeal(btn, id, arr) {
 }
 
 function placeOrder(btn, arr, errMsg) {
+  const link = document.getElementById('confirm-order');
+
   btn.addEventListener('click', e => {
     if (arr.length < 1) {
       errMsg.classList.remove('active');
       void errMsg.offsetWidth;
       errMsg.classList.add('active');
     } else {
-      location.replace('/pages/order.html');
+      link.click();
     }
   });
 }
