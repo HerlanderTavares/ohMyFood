@@ -51,6 +51,17 @@
         font-size: 3.5rem;
         filter: drop-shadow(2px 2px 3px rgba(black, 0.8));
       }
+
+      .hover {
+        color: color(secondary);
+      }
+
+      &:hover,
+      &.active {
+        .main {
+          color: color(secondary);
+        }
+      }
     }
   }
 
@@ -297,6 +308,10 @@
         position: initial;
         inset: 0;
         transform: translate(0, 0);
+
+        &:active {
+          transform: scale(1.5);
+        }
       }
 
       &[data-title='header'] {

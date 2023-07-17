@@ -72,3 +72,20 @@
     rotate: 720deg;
   }
 }
+
+@keyframes stop-loader {
+  0% {
+    opacity: 1;
+    height: 100dvh;
+  }
+
+  99% {
+    opacity: 1;
+    height: 100dvh;
+  }
+
+  100% {
+    opacity: 0;
+    height: 0;
+  }
+}

@@ -76,7 +76,7 @@
       .icon {
         grid-column: 1;
         grid-row: 1;
-        transition: clip-path 250ms ease-out;
+        transition: clip-path 250ms ease-out, color 250ms ease-out;
         clip-path: $clip-path;
       }
 
@@ -120,14 +120,15 @@
 }
 
 /************** Queries **************/
-@include query(590) {
+@include query(500) {
   .title {
     text-align: center;
   }
 }
 
-@include query(1200) {
+@include query(870) {
   .restaurant {
+    padding-bottom: 12rem;
     &__options {
       display: grid;
       grid-template-columns: max-content max-content;
