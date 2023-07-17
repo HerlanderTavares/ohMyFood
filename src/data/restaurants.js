@@ -137,7 +137,7 @@ const restaurants = [
     menu: [
       {
         type: 'entrees',
-        entrees: [
+        items: [
           {name: 'Tuna Carpaccio', description: 'Seasoned with yuzu', price: 25},
           {name: 'Crunchy Lobster Croquets', description: 'With seasonal vegetables', price: 35},
           {name: 'Mushroom soup', description: 'With truffles', price: 20},
@@ -146,7 +146,7 @@ const restaurants = [
 
       {
         type: 'main',
-        main: [
+        items: [
           {
             name: 'Roast Chicken',
             description: 'With provincal herbs and truffle cream',
@@ -163,7 +163,7 @@ const restaurants = [
 
       {
         type: 'desserts',
-        desserts: [
+        items: [
           {name: 'Assorted Dessert Plate', description: "Chef's choice", price: 18},
           {name: 'Creme brulee', description: 'Revisited', price: 22},
           {name: 'Tiramisu', description: 'With hazelnuts', price: 23},
